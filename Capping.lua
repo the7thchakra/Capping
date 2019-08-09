@@ -1,4 +1,9 @@
 
+if WOW_PROJECT_ID ~= WOW_PROJECT_CLASSIC then
+	print("|cFF33FF99Capping|r: You're trying to run the Classic version of Capping on a live server.")
+	return
+end
+
 local addonName, mod = ...
 local frame = CreateFrame("Frame", "CappingFrame", UIParent)
 local L = mod.L
@@ -135,9 +140,9 @@ function mod:PLAYER_LOGIN()
 	end
 
 	-- Fix flag carriers for some people
-	C_CVar.SetCVar("showArenaEnemyCastbar", "1")
-	C_CVar.SetCVar("showArenaEnemyFrames", "1")
-	C_CVar.SetCVar("showArenaEnemyPets", "1")
+	SetCVar("showArenaEnemyCastbar", "1")
+	SetCVar("showArenaEnemyFrames", "1")
+	SetCVar("showArenaEnemyPets", "1")
 
 	self:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 	self:RegisterEvent("UPDATE_BATTLEFIELD_STATUS")

@@ -1,4 +1,8 @@
 
+if WOW_PROJECT_ID ~= WOW_PROJECT_CLASSIC then
+	return
+end
+
 local mod
 do
 	local _
@@ -13,7 +17,7 @@ local GetDoubleStatusBarWidgetVisualizationInfo = C_UIWidgetManager.GetDoubleSta
 local GetAreaPOIForMap = C_AreaPoiInfo.GetAreaPOIForMap
 local GetAreaPOIInfo = C_AreaPoiInfo.GetAreaPOIInfo
 local Timer, SendAddonMessage, NewTicker = C_Timer.After, C_ChatInfo.SendAddonMessage, C_Timer.NewTicker
-local GetAtlasInfo = C_Texture.GetAtlasInfo
+local GetAtlasInfo = function() end
 local GetScoreInfo = C_PvP.GetScoreInfo
 local RequestBattlefieldScoreData = RequestBattlefieldScoreData
 
