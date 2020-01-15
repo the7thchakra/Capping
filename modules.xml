@@ -4,7 +4,7 @@
 <Script file="Modules\AlteracValley.lua"/>
 <Script file="Modules\ArathiBasin.lua"/>
 <Script file="Modules\QueueTimers.lua"/>
-<Script file="Modules\Wintergrasp.lua"/>
+<Script file="Modules\WarsongGulch.lua"/>
 <!--@debug@-->
 <Include file="Options\locales.xml"/>
 <Script file="Options\Options.lua"/>

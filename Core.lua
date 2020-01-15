@@ -520,7 +520,7 @@ do
 		local landmarkCache = {}
 		local GetAreaPOIForMap = C_AreaPoiInfo.GetAreaPOIForMap
 		local GetAreaPOIInfo = C_AreaPoiInfo.GetAreaPOIInfo
-		local GetAtlasInfo = C_Texture.GetAtlasInfo
+		local GetAtlasInfo = GetAtlasInfo
 
 		local function UpdatePOI()
 			local pois = GetAreaPOIForMap(curMapID)
@@ -722,9 +722,9 @@ function core:ADDON_LOADED(addon)
 		end
 
 		-- Fix flag carriers for some people
-		C_CVar.SetCVar("showArenaEnemyCastbar", "1")
-		C_CVar.SetCVar("showArenaEnemyFrames", "1")
-		C_CVar.SetCVar("showArenaEnemyPets", "1")
+		SetCVar("showArenaEnemyCastbar", "1")
+		SetCVar("showArenaEnemyFrames", "1")
+		SetCVar("showArenaEnemyPets", "1")
 
 		self:RegisterEvent("PLAYER_ENTERING_WORLD")
 
@@ -757,8 +757,8 @@ do
 end
 
 function core:Test(locale)
-	core:StartBar(locale.queueBars, 100, 236396, "colorQueue") -- Interface/Icons/Achievement_BG_winWSG
-	core:StartBar(locale.otherBars, 75, 1582141, "colorOther") -- Interface/Icons/Achievement_PVP_Legion03
+	core:StartBar(locale.queueBars, 100, 132147, "colorQueue") -- Interface/Icons/Ability_dualwield
+	core:StartBar(locale.otherBars, 75, 132089, "colorOther") -- Interface/Icons/Ability_ambush
 	core:StartBar(locale.allianceBars, 45, 132486, "colorAlliance") -- Interface/Icons/INV_BannerPVP_02
 	core:StartBar(locale.hordeBars, 25, 132485, "colorHorde") -- Interface/Icons/INV_BannerPVP_01
 end
