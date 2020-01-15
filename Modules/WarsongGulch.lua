@@ -53,4 +53,4 @@ function mod:ExitZone()
 	self:UnregisterEvent("CHAT_MSG_BG_SYSTEM_ALLIANCE")
 end
 
-mod:RegisterZone(2106)
+mod:RegisterZone(489)
