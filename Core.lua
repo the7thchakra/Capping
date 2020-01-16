@@ -472,13 +472,53 @@ do
 	end
 
 	do
+		-- Easy world map icon checker
+		--local start = function(self) self:StartMoving() end
+		--local stop = function(self) self:StopMovingOrSizing() end
+		--local frames = {}
+		--do
+		--	local f = CreateFrame("Frame", nil, UIParent)
+		--	f:SetPoint("CENTER")
+		--	f:SetSize(24,24)
+		--	f:EnableMouse(true)
+		--	f:SetMovable(true)
+		--	f:RegisterForDrag("LeftButton")
+		--	f:SetScript("OnDragStart", start)
+		--	f:SetScript("OnDragStop", stop)
+		--	frames[1] = f
+		--	local tx = f:CreateTexture()
+		--	tx:SetAllPoints(f)
+		--	tx:SetTexture("Interface/Minimap/POIIcons")
+		--	tx:SetTexCoord(GetPOITextureCoords(1))
+		--	local n = f:CreateFontString(nil, "OVERLAY", "GameFontNormalLarge")
+		--	n:SetPoint("BOTTOM", f, "TOP")
+		--	n:SetText(1)
+		--end
+		--for i = 2, 250 do
+		--	local f = CreateFrame("Frame", nil, UIParent)
+		--	f:SetPoint("LEFT", frames[i-1], "RIGHT", 10, 0)
+		--	f:SetSize(24,24)
+		--	f:EnableMouse(true)
+		--	f:SetMovable(true)
+		--	f:RegisterForDrag("LeftButton")
+		--	f:SetScript("OnDragStart", start)
+		--	f:SetScript("OnDragStop", stop)
+		--	frames[i] = f
+		--	local tx = f:CreateTexture()
+		--	tx:SetAllPoints(f)
+		--	tx:SetTexture("Interface/Minimap/POIIcons")
+		--	tx:SetTexCoord(GetPOITextureCoords(i))
+		--	local n = f:CreateFontString(nil, "OVERLAY", "GameFontNormalLarge")
+		--	n:SetPoint("BOTTOM", f, "TOP")
+		--	n:SetText(i)
+		--end
 		local iconDataConflict = {
 			-- Graveyard
-			[4] = "colorAlliance",
-			[14] = "colorHorde",
+			[3] = "colorAlliance",
+			[13] = "colorHorde",
 			-- Tower
-			[9] = "colorAlliance",
-			[12] = "colorHorde",
+			[8] = "colorAlliance",
+			[11] = "colorHorde",
 			-- Mine/Stone
 			[17] = "colorAlliance",
 			[19] = "colorHorde",
@@ -494,18 +534,6 @@ do
 			-- Stables/Horse
 			[37] = "colorAlliance",
 			[39] = "colorHorde",
-			-- Workshop/Tent
-			[137] = "colorAlliance",
-			[139] = "colorHorde",
-			-- Hangar/Mushroom
-			[142] = "colorAlliance",
-			[144] = "colorHorde",
-			-- Docks/Anchor
-			[147] = "colorAlliance",
-			[149] = "colorHorde",
-			-- Oil/Refinery
-			[152] = "colorAlliance",
-			[154] = "colorHorde",
 		}
 		local atlasColors = nil
 		local GetPOITextureCoords = GetPOITextureCoords
@@ -535,10 +563,10 @@ do
 							bar:Set("capping:poiid", areaPoiID)
 						else
 							curMod:StopBar(name)
-							if icon == 2 or icon == 3 then -- Horde mine, Alliance mine
+							if icon == 1 or icon == 2 then -- Horde mine, Alliance mine
 								local _, _, _, id = UnitPosition("player")
 								if id == 30 then -- Alterac Valley
-									local bar = curMod:StartBar(name, 3600, GetIconData(icon), (icon == 3 or icon == 151 or icon == 18) and "colorAlliance" or "colorHorde", true) -- Paused bar for mine status
+									local bar = curMod:StartBar(name, 3600, GetIconData(icon), icon == 2 and "colorAlliance" or "colorHorde", true) -- Paused bar for mine status
 									bar:Pause()
 									bar:SetTimeVisibility(false)
 									bar:Set("capping:customchat", function() end)
@@ -601,11 +629,11 @@ do
 				local atlasName = tbl.atlasName
 				if icon then
 					landmarkCache[tbl.name] = icon
-					if icon == 2 or icon == 3 or icon == 151 or icon == 153 or icon == 18 or icon == 20 then
-						-- Horde mine, Alliance mine, Alliance Refinery, Horde Refinery, Alliance Quarry, Horde Quarry
+					if icon == 1 or icon == 2 then
+						-- Horde mine, Alliance mine
 						local _, _, _, id = UnitPosition("player")
 						if id == 30 then -- Alterac Valley
-							local bar = self:StartBar(tbl.name, 3600, GetIconData(icon), (icon == 3 or icon == 151 or icon == 18) and "colorAlliance" or "colorHorde", true) -- Paused bar for mine status
+							local bar = self:StartBar(tbl.name, 3600, GetIconData(icon), icon == 2 and "colorAlliance" or "colorHorde", true) -- Paused bar for mine status
 							bar:Pause()
 							bar:SetTimeVisibility(false)
 							bar:Set("capping:customchat", function() end)
