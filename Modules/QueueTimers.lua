@@ -88,7 +88,6 @@ do -- estimated wait timer and port timer
 				end
 			else -- Negative queue (in queue longer than estimated time) or 0 queue (paused)
 				if not bar or bar.remaining ~= 1 then
-					local icon
 					if bar then
 						bar:Stop()
 					end

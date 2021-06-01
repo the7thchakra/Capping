@@ -82,7 +82,7 @@ local hereFromTheStart, hasData = true, true
 local stopTimer = nil
 local function allow() hereFromTheStart = false end
 local function stop() hereFromTheStart = true hasData = true stopTimer = nil end
-local GetScoreInfo = C_PvP.GetScoreInfo
+--local GetScoreInfo = C_PvP.GetScoreInfo
 local SendAddonMessage = C_ChatInfo.SendAddonMessage
 local function AVSyncRequest()
 	for i = 1, 80 do

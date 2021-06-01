@@ -56,17 +56,17 @@ do
 end
 
 do
-	local colors = {
-		["eots_capPts-leftIcon2-state1"] = "colorAlliance",
-		["eots_capPts-leftIcon3-state1"] = "colorAlliance",
-		["eots_capPts-leftIcon4-state1"] = "colorAlliance",
-		["eots_capPts-leftIcon5-state1"] = "colorAlliance",
-		["eots_capPts-rightIcon2-state1"] = "colorHorde",
-		["eots_capPts-rightIcon3-state1"] = "colorHorde",
-		["eots_capPts-rightIcon4-state1"] = "colorHorde",
-		["eots_capPts-rightIcon5-state1"] = "colorHorde",
-	}
-	function mod:EnterZone(id)
+	--local colors = {
+	--	["eots_capPts-leftIcon2-state1"] = "colorAlliance",
+	--	["eots_capPts-leftIcon3-state1"] = "colorAlliance",
+	--	["eots_capPts-leftIcon4-state1"] = "colorAlliance",
+	--	["eots_capPts-leftIcon5-state1"] = "colorAlliance",
+	--	["eots_capPts-rightIcon2-state1"] = "colorHorde",
+	--	["eots_capPts-rightIcon3-state1"] = "colorHorde",
+	--	["eots_capPts-rightIcon4-state1"] = "colorHorde",
+	--	["eots_capPts-rightIcon5-state1"] = "colorHorde",
+	--}
+	function mod:EnterZone()
 		self:StartScoreEstimator()
 		self:RegisterEvent("CHAT_MSG_BG_SYSTEM_HORDE", "CHAT_MSG")
 		self:RegisterEvent("CHAT_MSG_BG_SYSTEM_ALLIANCE", "CHAT_MSG")
