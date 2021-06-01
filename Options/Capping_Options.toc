@@ -1,4 +1,4 @@
-## Interface: 90005
+## Interface: 20501
 ## Title: Capping_Options
 ## Author: Funkydude
 ## Notes: Capping Configuration Options.

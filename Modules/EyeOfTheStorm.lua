@@ -7,7 +7,7 @@ end
 
 do
 	-- GetPOITextureCoords(45)
-	local icon = {136441, 0.21484375, 0.28125, 0.107421875, 0.140625}
+	local icon = {136441, 0.625, 0.75, 0.625, 0.75}
 	function mod:CHAT_MSG(msg)
 		local found = strmatch(msg, L.takenTheFlagTrigger)
 		if (found and found == "L'Alliance") or strmatch(msg, L.capturedTheTrigger) then -- frFR
@@ -70,11 +70,6 @@ do
 		self:StartScoreEstimator()
 		self:RegisterEvent("CHAT_MSG_BG_SYSTEM_HORDE", "CHAT_MSG")
 		self:RegisterEvent("CHAT_MSG_BG_SYSTEM_ALLIANCE", "CHAT_MSG")
-		if id == 566 then -- Normal/Brawl
-			self:RegisterEvent("RAID_BOSS_WHISPER")
-		else -- Rated
-			self:StartFlagCaptures(60, 397, colors)
-		end
 	end
 end
 
@@ -87,4 +82,4 @@ function mod:ExitZone()
 end
 
 mod:RegisterZone(566)
-mod:RegisterZone(968) -- In RBG the four points have flags that need to be assaulted, like AB
+--mod:RegisterZone(968) -- In RBG the four points have flags that need to be assaulted, like AB
